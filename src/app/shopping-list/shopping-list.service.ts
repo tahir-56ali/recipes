@@ -1,8 +1,8 @@
 import {Ingredient} from '../shared/ingredient.model';
-import {Subject} from "rxjs";
+import {Subject} from 'rxjs';
 
 export class ShoppingListService {
-    ingredientAdded = new Subject<Ingredient[]>();
+    ingredientChanged = new Subject<Ingredient[]>();
     startedEditing = new Subject<number>();
     private ingredients: Ingredient[] = [
         new Ingredient('Apple', 5),
@@ -19,13 +19,21 @@ export class ShoppingListService {
 
     addIngredient(ingredient: Ingredient) {
         this.ingredients.push(ingredient);
-        this.ingredientAdded.next(this.ingredients.slice());
+        this.ingredientChanged.next(this.ingredients.slice());
     }
     addIngredients(ingredients: Ingredient[]) {
         // for (let ingredient of ingredients) {
         //     this.addIngredient(ingredient); // will emit many times that is wrong
         // }
         this.ingredients.push(...ingredients); // using spread operator
-        this.ingredientAdded.next(this.ingredients.slice()); // emit only once
+        this.ingredientChanged.next(this.ingredients.slice()); // emit only once
+    }
+    updateIngredient(index: number, newIngredient: Ingredient) {
+        this.ingredients[index] = newIngredient;
+        this.ingredientChanged.next(this.ingredients.slice());
+    }
+    deleteIngredient(index: number) {
+        this.ingredients.splice(index, 1);
+        this.ingredientChanged.next(this.ingredients.slice());
     }
 }
