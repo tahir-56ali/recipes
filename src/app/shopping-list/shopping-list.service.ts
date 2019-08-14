@@ -9,25 +9,25 @@ export class ShoppingListService {
         new Ingredient('Tomatoes', 10),
     ];
 
-    getIngredients() {
+    /*getIngredients() {
         return this.ingredients.slice();
-    }
+    }*/
 
     getIngredient(index: number) {
         return this.ingredients[index];
     }
 
-    addIngredient(ingredient: Ingredient) {
+    /*addIngredient(ingredient: Ingredient) {
         this.ingredients.push(ingredient);
         this.ingredientChanged.next(this.ingredients.slice());
-    }
-    addIngredients(ingredients: Ingredient[]) {
+    }*/
+    /*addIngredients(ingredients: Ingredient[]) {
         // for (let ingredient of ingredients) {
         //     this.addIngredient(ingredient); // will emit many times that is wrong
         // }
         this.ingredients.push(...ingredients); // using spread operator
         this.ingredientChanged.next(this.ingredients.slice()); // emit only once
-    }
+    }*/
     updateIngredient(index: number, newIngredient: Ingredient) {
         this.ingredients[index] = newIngredient;
         this.ingredientChanged.next(this.ingredients.slice());
