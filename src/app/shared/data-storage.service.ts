@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import {map} from 'rxjs/operators';
 
 import {RecipeService} from '../recipes/recipe.service';
 import {Recipe} from '../recipes/recipe.model';
@@ -38,7 +38,7 @@ export class DataStorageService {
           responseType: "json",
           // params: new HttpParams().set('auth', token)
         })
-            .map(
+            .pipe(map(
               (recipes) => {
                   // console.log(recipes);
                 for (let recipe of recipes) {
@@ -48,7 +48,7 @@ export class DataStorageService {
                 }
                 return recipes;
               }
-            )
+            ))
             .subscribe(
                 (recipes: Recipe[]) => {
                     this.recipeService.setRecipes(recipes);

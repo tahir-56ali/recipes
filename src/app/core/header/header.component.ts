@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {Store} from "@ngrx/store";
+import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
 
 import {DataStorageService} from '../../shared/data-storage.service';
 import * as fromApp from '../../store/app.reducers';
@@ -15,8 +15,7 @@ import * as RecipeActions from '../../recipes/store/recipe.actions';
 })
 export class HeaderComponent implements OnInit {
   authState: Observable<fromAuth.State>;
-  constructor(private dataStorageService: DataStorageService,
-              private store: Store<fromApp.AppState>) {}
+  constructor(private store: Store<fromApp.AppState>) {}
   ngOnInit() {
     this.authState = this.store.select('auth');
   }

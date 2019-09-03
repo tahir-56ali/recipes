@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Store} from "@ngrx/store";
+import {Store} from '@ngrx/store';
 
 // import * as fromShoppingList from './store/shopping-list.reducers';
 import * as fromApp from '../store/app.reducers';
 // import {ShoppingListService} from './shopping-list.service';
 import {Ingredient} from '../shared/ingredient.model';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs';
 import * as ShoppingListActions from './store/shopping-list.actions';
 
 @Component({

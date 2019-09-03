@@ -1,8 +1,8 @@
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {map, switchMap, withLatestFrom} from 'rxjs/operators';
 import {HttpClient, HttpRequest} from '@angular/common/http';
-import {Injectable} from "@angular/core";
-import {Store} from "@ngrx/store";
+import {Injectable} from '@angular/core';
+import {Store} from '@ngrx/store';
 
 import * as RecipeActions from './recipe.actions';
 import * as fromRecipe from './recipe.reducers';
