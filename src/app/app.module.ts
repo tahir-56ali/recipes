@@ -20,7 +20,7 @@ import { reducers } from "./store/app.reducers";
     AppComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'my-universal-app'}),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     AppRoutingModule,
     ShoppingListModule,
