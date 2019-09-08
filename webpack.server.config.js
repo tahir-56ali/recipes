@@ -10,7 +10,13 @@ module.exports = {
     server: './server.ts'
   },
   target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: {
+    extensions: ['.ts', '.js'],
+    // added below alias for firebase to fix bug of: ReferenceError: IDBIndex is not defined
+    alias: {
+      firebase: path.resolve(__dirname, 'node_modules/firebase/dist/index.node.cjs.js')
+    }
+  },
   optimization: {
     minimize: false
   },
